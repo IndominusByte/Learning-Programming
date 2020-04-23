@@ -1,0 +1,11 @@
+flask
+gunicorn
+psycopg2
+psycopg2-binary
+flask-sqlalchemy
+alembic
+flask-admin
+flask-wtf
+enum34
+flask-security
+bcrypt

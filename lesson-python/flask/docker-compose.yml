@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  web_app:
+    build: .
+    command: >
+      gunicorn -b 0.0.0.0:8000
+      --access-logfile -
+      --reload
+      "web_app.app:app"
+    environment:
+      PYTHONUNBUFFERED: 'true'
+    volumes:
+      - '.:/web_app'
+    ports:
+      - '8000:8000'
+
+  postgres:
+    image: postgres:9.6
+    ports:
+      - "5433:5432"
+    volumes:
+      - /var/lib/postgresql/data
+    environment:    
+      POSTGRES_USER: 'nyoman'
+      POSTGRES_PASSWORD: 123
